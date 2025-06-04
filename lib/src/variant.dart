@@ -21,6 +21,8 @@ import 'dart:math';
 /// ```
 class Variant {
   final dynamic _value;
+  dynamic get value => _value;
+  
   const Variant(this._value);
 
   /// Returns true if the value is null.
