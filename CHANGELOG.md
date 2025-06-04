@@ -1,6 +1,6 @@
-## 1.0.1
+## 1.0.2
 
-- added value getter for raw data
+- Added value getter for raw data
 
 ## 1.0.0
 
