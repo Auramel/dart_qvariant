@@ -90,19 +90,13 @@ class Variant {
   /// Returns value as formatted numeric string with optional rounding.
   /// 
   /// Example: `Variant(3.140000).toNumericString(roundCount: 2)` → `"3.14"`
-  String toNumericString({final int roundCount = 2}) {
-    return _match<String>(
-      onString: () => double.tryParse(_value)
-        ?.customRound(roundCount: roundCount)
-        .toString()
-        .replaceAll(RegExp(r'([.]*0+)(?!.*\\d)'), ''),
-      onInt: () => (_value as int).toString(),
-      onDouble: () => (_value as double)
-        .customRound(roundCount: roundCount)
-        .toString()
-        .replaceAll(RegExp(r'([.]*0+)(?!.*\\d)'), ''),
-      onBool: () => (_value as bool) ? 'true' : 'false',
-    ) ?? '0';
+  String? toNumericString({final int roundCount = 2}) {
+    return _match(
+      onString: () => double.tryParse(_value)?.customRound(roundCount: roundCount).toString().replaceAll(RegExp(r'([.]*0+)(?!.*\d)'), ''),
+      onInt: () => int.tryParse(_value.toString()).toString(),
+      onDouble: () => (_value as double).customRound(roundCount: roundCount).toString().replaceAll(RegExp(r'([.]*0+)(?!.*\d)'), ''),
+      onBool: () => (_value) ? 'true' : 'false',
+    );
 }
 
   /// Tries to parse value into [DateTime]. Accepts [DateTime] or ISO8601 strings.
