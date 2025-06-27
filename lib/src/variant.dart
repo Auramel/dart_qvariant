@@ -44,6 +44,12 @@ class Variant {
   /// Returns true if the value is a [num] (int or double).
   bool get isNumeric => _value is num;
 
+  /// Returns true if the value is a [List].
+  bool get isList => _value is List;
+
+  /// Returns true if the value is a [Map].
+  bool get isMap => _value is Map;
+
   @override
   String toString() => toText() ?? 'null';
 

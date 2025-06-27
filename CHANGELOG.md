@@ -1,3 +1,7 @@
+## 1.0.5
+
+- add isList and isMap getters
+
 ## 1.0.4
 
 - fix toNumericString()

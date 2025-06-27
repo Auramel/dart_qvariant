@@ -1,6 +1,6 @@
 name: dart_qvariant
 description: A Qt-style immutable variant wrapper with smart casting for Dart.
-version: 1.0.4
+version: 1.0.5
 
 repository: https://github.com/Auramel/dart_qvariant
 
