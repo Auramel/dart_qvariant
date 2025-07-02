@@ -111,17 +111,13 @@ class Variant {
       return null;
     }
 
-    if (_value is DateTime) {
-      if (toLocal) {
-        return (_value).toLocal();
-      } else {
-        return (_value);
-      }
-    }
+    final DateTime? result = (_value is DateTime)
+      ? _value
+      : DateTime.tryParse(_value.toString());
 
     return toLocal
-      ? DateTime.tryParse(_value.toString())?.toLocal()
-      : DateTime.tryParse(_value.toString());
+      ? result?.toLocal()
+      : result;
   }
 
   /// Tries to parse value into local [DateTime]. Accepts [DateTime] or ISO8601 strings.
