@@ -1,3 +1,6 @@
+## 1.0.7
+- small refactoring
+
 ## 1.0.6
 - add toLocalDateTime() helper function if you need only local datetime
 
