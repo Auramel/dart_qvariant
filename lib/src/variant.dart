@@ -103,7 +103,7 @@ class Variant {
       onDouble: () => (_value as double).customRound(roundCount: roundCount).toString().replaceAll(RegExp(r'([.]*0+)(?!.*\d)'), ''),
       onBool: () => (_value) ? 'true' : 'false',
     );
-}
+  }
 
   /// Tries to parse value into [DateTime]. Accepts [DateTime] or ISO8601 strings.
   DateTime? toDateTime({final bool toLocal = false}) {
@@ -122,6 +122,11 @@ class Variant {
     return toLocal
       ? DateTime.tryParse(_value.toString())?.toLocal()
       : DateTime.tryParse(_value.toString());
+  }
+
+  /// Tries to parse value into local [DateTime]. Accepts [DateTime] or ISO8601 strings.
+  DateTime? toLocalDateTime() {
+    return toDateTime(toLocal: true);
   }
 
   T? _match<T>({

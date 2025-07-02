@@ -1,3 +1,6 @@
+## 1.0.6
+- add toLocalDateTime() helper function if you need only local datetime
+
 ## 1.0.5
 
 - add isList and isMap getters
